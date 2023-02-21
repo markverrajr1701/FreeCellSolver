@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -9,6 +10,11 @@ import java.util.ArrayList;
 public class FreeCell
 {
     public FreeCell() {}
+
+    public ArrayList<Action> solve(GameState gs) 
+    {
+        return null; // REMEMBER TO FIX THIS
+    }
 
     public static void main() {
         GameState game = new GameState();

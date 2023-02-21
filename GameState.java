@@ -9,7 +9,7 @@ import java.io.FileWriter;
 /**
  * Contains the state of a FreeCell game
  *
- * @author Dan DiTursi
+ * @author Dan DiTursi, Modified by Mark Verra
  * @version 11 February 2023
  */
 public class GameState
@@ -62,6 +62,11 @@ public class GameState
         for (int i = 0; i < 5; i++) {
             foundations[i] = gs.foundations[i];
         }
+    }
+
+    public int h()
+    {
+        return -1;  // IMPLEMENT MY HEURISTIC HERE
     }
     
     // Note: input string must be full file path, unless file is in current working directory

@@ -5,6 +5,7 @@ import java.util.Scanner;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.FileWriter;
+import java.util.PriorityQueue;
 
 /**
  * Contains the state of a FreeCell game
@@ -19,6 +20,7 @@ public class GameState
     private int numCellsFree;
     private ArrayList<ArrayList<Card>> tableau; // In actions, numbered 1-8; we adjust the -1 manually.
     private int[] foundations = {0,0,0,0,0}; // We'll ignore the first one.
+    private final int CARDS_IN_DECK = 52;
 
     /**
      * Creates a random deal
@@ -40,7 +42,7 @@ public class GameState
         
         for (i = 0; i < 8; i++) {
             ArrayList<Card> current = new ArrayList<Card>();
-            k = i<4 ? 7 : 6;    // first four piles get 7 cards; last four get 6 cards
+            k = i < 4 ? 7 : 6;    // first four piles get 7 cards; last four get 6 cards
             for (j = 0; j < k; j++) {
                 current.add(deck.remove(0));
             }
@@ -66,7 +68,25 @@ public class GameState
 
     public int h()
     {
-        return -1;  // IMPLEMENT MY HEURISTIC HERE
+        int minMovesRequired = CARDS_IN_DECK - (foundations[1] + foundations[2] + foundations[3] + foundations[4]); 
+        ArrayList<Card> blockerCards = new ArrayList<Card>();
+
+        if(true)
+        {
+            for(int tabs = 0; tabs < 8; tabs++) {
+                if(tableau.get(tabs).size() == 0) {
+                    continue;
+                }
+
+                else {
+                    
+                }
+            }
+        }
+        else
+        {
+            return 52;
+        }
     }
     
     // Note: input string must be full file path, unless file is in current working directory

@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Currency;
 import java.io.File;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
@@ -74,19 +75,30 @@ public class GameState
         if(true)
         {
             for(int tabs = 0; tabs < 8; tabs++) {
-                if(tableau.get(tabs).size() == 0) {
-                    continue;
+                if(tableau.get(tabs).size() != 0) {
+                    for(Card card : tableau.get(tabs)) {
+                        for(Card card2 : tableau.get(tabs)) {
+                            if(!blockerCards.contains(card) && card2.getRank() < card.getRank()
+                            && card2.getSuit() == card.getSuit()) {
+                                blockerCards.add(card); // if the first card is blocking another card with a lesser rank, add to list.
+                                minMovesRequired++;
+                        }
+                        }
+                    }
                 }
 
                 else {
-                    
+                    continue;
                 }
             }
+            return minMovesRequired;
         }
+
         else
         {
             return 52;
         }
+        
     }
     
     // Note: input string must be full file path, unless file is in current working directory

@@ -1,6 +1,7 @@
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
+import java.util.Comparator;
 
 /**
  * Driver class for the Freecell game.
@@ -14,7 +15,16 @@ public class FreeCell
 
     public ArrayList<Action> solve(GameState gs) 
     {
-        return null; // REMEMBER TO FIX THIS
+        ArrayList<Action> solutionMoves = new ArrayList<Action>();
+
+        PriorityQueue<GameState> pq = new PriorityQueue<GameState>(new Comparator<GameState>() {
+            @Override
+            public int compare(GameState gs1, GameState gs2) {
+                return gs1.h(gs1) - gs2.h(gs2);
+            }
+        });
+
+        return solutionMoves;
     }
 
     public static void main() {

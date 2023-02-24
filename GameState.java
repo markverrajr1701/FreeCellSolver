@@ -67,7 +67,7 @@ public class GameState
         }
     }
 
-    public int h()
+    public int h(GameState gs)
     {
         int minMovesRequired = CARDS_IN_DECK - (foundations[1] + foundations[2] + foundations[3] + foundations[4]); 
         ArrayList<Card> blockerCards = new ArrayList<Card>();
